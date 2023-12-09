@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taxi Fare Predictor</title>
+    <style>
+      body {
+<!--      background-color: #f4b942;-->
+          font-family: Arial, sans-serif;
+          background-image: url_for("../img/taxi.png") no-repeat center bottom/cover;
+          min-height: 100%
+<!--          background-repeat: no-repeat;-->
+<!--          background-attachment: fixed;-->
+<!--          background-size: cover;-->
+
+      }
+      .login {
+        background-color: #ffffff;
+        border: 3px solid #1e3e8f;
+        border-radius: 30px;
+        padding: 30px;
+        margin: 6px auto;
+        max-width: 600px;
+      }
+      h1 {
+        background-color: #dab225;
+        font-weight: bold;
+        border-radius: 10px;
+        text-align: center;
+        color: #1e3e8f;
+        margin: 1px 20px;
+        padding: 5px;
+      }
+      label {
+        padding: 10px;
+        display: inline-block;
+        margin-bottom:30px;
+        color: #1e3e8f;
+      }
+      input {
+        padding:3px;
+        border-radius: 10px;
+        border: 2px solid #1e3e8f;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      button {
+        background-color: #1e3e8f;
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 25px;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        margin-top: 23px;
+      }
+      button:hover {
+        background-color: #25b2da;
+      }
+<!--      img {-->
+<!--        display: block;-->
+<!--        margin: 0 auto;-->
+<!--        margin-top: 50px;-->
+<!--        max-width: 300px;-->
+<!--        height: auto;-->
+<!--      }-->
+
+    </style>
+   </head>
+  <body>
+    <div class="login">
+      <h1>Taxi Fare Predictor</h1>
+      <form action="{{ url_for('predict') }}" method="post">
+
+        <label for="pickup" style="font-size: 32px;font-weight: bold;">pickup:</label>
+        <input type="text" id="pickup" name="pickup" required="required" style="font-size: 25px;"/>
+
+        <label for="dropout" style="font-size: 32px; font-weight: bold;">dropout:</label>
+        <input type="text" id="dropout" name="dropout" required="required" style="font-size: 25px;" />
+
+        <label for="passenger_count" style="font-size: 32px; font-weight: bold;">Passenger Count:</label>
+        <input type="number" step=".0001" id="passenger_count" name="passenger_count" required="required" style="font-size: 25px;" />
+
+<!--        <label for="pickup_hour" style="font-size: 22px; font-weight: bold;">Pickup Hour:</label>-->
+<!--        <input type="number" step=".0001" id="pickup_hour" name="pickup_hour" required="required" style="font-size: 25px;" /><br>-->
+
+<!--        <label for="pickup_date" style="font-size: 22px; font-weight: bold;">Pickup Date:</label>-->
+<!--        <input type="number" step=".0001" id="pickup_date" name="pickup_date" required="required" style="font-size: 25px;" /><br>-->
+
+<!--        <label for="pickup_month" style="font-size: 22px;font-weight: bold;" >Pickup Month:</label>-->
+<!--        <input type="number" step=".0001" id="pickup_month" name="pickup_month" required="required" style="font-size: 25px;" /><br>-->
+      
+<!--        <label for="pickup_day" style="font-size: 22px; font-weight: bold;">Pickup Day:</label>-->
+<!--        <input type="text"  id="pickup_day" name="pickup_day" required="required" style="font-size: 25px;" /><br>-->
+
+<!--        <label for="distance">Distance:</label>-->
+<!--        <input type="number" step="0.0001" id="distance" name="distance" required="required" /><br>-->
+
+      <button type="submit" style="font-size: 30px" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+    <p style="font-size: 30px; font-weight: bold; background-color: yellow;"> {{prediction_text}} </p>
+<!--{{ prediction_text }}-->
+
+        
+   </div>
+      
+  </body>
+</html>
